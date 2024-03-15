@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "trending_blogs",
+  "info": {
+    "singularName": "trending-blog",
+    "pluralName": "trending-blogs",
+    "displayName": "Trending Blogs"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post"
+    }
+  }
+}
