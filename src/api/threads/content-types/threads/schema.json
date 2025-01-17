@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "threads_posts",
+  "info": {
+    "singularName": "threads",
+    "pluralName": "threads-posts",
+    "displayName": "Threads",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "edition": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "min": 0
+    },
+    "release_date": {
+      "type": "date",
+      "required": true
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
