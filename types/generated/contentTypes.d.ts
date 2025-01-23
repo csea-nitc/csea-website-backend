@@ -621,7 +621,6 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     >;
     images: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
     publishedAt: Attribute.DateTime;
-    slug: Attribute.String;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::gallery.gallery',

@@ -29,9 +29,6 @@
     },
     "drive_link": {
       "type": "string"
-    },
-    "slug": {
-      "type": "string"
     }
   }
 }
