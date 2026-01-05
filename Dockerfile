@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:22-alpine AS build
+FROM node:20-alpine AS build
 # Install system dependencies for native modules (sharp, sqlite3, etc.)
 RUN apk add --no-cache build-base gcc autoconf automake libtool zlib-dev vips-dev
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Hardened Runtime
-FROM node:22-alpine
+FROM node:20-alpine
 RUN apk add --no-cache vips-dev
 WORKDIR /app
 
