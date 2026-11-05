@@ -769,6 +769,36 @@ export interface ApiTrendingBlogTrendingBlog extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiYearbookYearbook extends Struct.CollectionTypeSchema {
+  collectionName: 'yearbooks';
+  info: {
+    displayName: 'Yearbook';
+    pluralName: 'yearbooks';
+    singularName: 'yearbook';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cover: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::yearbook.yearbook'
+    > &
+      Schema.Attribute.Private;
+    pdf: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1290,6 +1320,7 @@ declare module '@strapi/strapi' {
       'api::image.image': ApiImageImage;
       'api::threads.threads': ApiThreadsThreads;
       'api::trending-blog.trending-blog': ApiTrendingBlogTrendingBlog;
+      'api::yearbook.yearbook': ApiYearbookYearbook;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
